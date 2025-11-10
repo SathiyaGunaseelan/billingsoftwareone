@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varuna Collections Billing Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="vc.jpg" alt="Varuna Collections Logo" width="50">
+            <h1>Varuna Collections</h1>
+        </div>
+        <div class="header-actions">
+            <button id="manage-products-btn" class="secondary-btn">Manage Products</button>
+            <button id="reports-btn" class="primary-btn">Reports</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside id="sidebar">
+            <h2>Categories</h2>
+            <ul id="category-list">
+                </ul>
+        </aside>
+        
+        <main id="main-content">
+            <h2>Available Products</h2>
+            <div id="rates">
+                </div>
+        </main>
+        
+        <div id="cart">
+            <h2>Cart</h2>
+            <ul id="cart-items"></ul>
+            <p class="cart-total-line">Total: **₹**<span id="total">0</span></p>
+            <button id="proceed-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    
+    <div id="product-modal" class="modal">
+        <div class="modal-content product-management-content">
+            <h2>Product Management (CRUD)</h2>
+            
+            <div id="product-actions">
+                <h3>1. Add New Category</h3>
+                <input type="text" id="new-category-name" placeholder="Category Name (e.g., 'Shoes')">
+                <button id="add-category-btn" class="primary-btn">Add Category</button>
+                
+                <h3>2. Add New Rate</h3>
+                <select id="select-category-for-rate">
+                    </select>
+                <input type="number" id="new-rate-value" placeholder="Rate Value (e.g., 75)" min="1">
+                <button id="add-rate-btn" class="primary-btn">Add Rate</button>
+
+                <h3>3. View & Delete Products</h3>
+                <div id="product-list-view">
+                    </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="close-product-modal" class="secondary-btn">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <h2>Checkout</h2>
+            <label for="phone">Customer Phone Number:</label>
+            <input type="tel" id="phone" required placeholder="e.g., +1234567890">
+            <p class="checkout-total-line">Total Amount: **₹**<span id="checkout-total">0</span></p>
+            <label>Payment Method:</label>
+            <select id="payment-method">
+                <option value="qr">UPI / QR Code</option>
+                <option value="cash">Cash</option>
+            </select>
+            <div id="qr-display" style="display: none;">
+                <img src="qr-code.png" alt="Shop QR Code" width="200"> <p>Scan the QR code to pay.</p>
+            </div>
+            <div class="modal-actions">
+                <button id="confirm-payment" class="primary-btn">Confirm Payment</button>
+                <button id="close-modal" class="secondary-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="receipt-modal" class="modal">
+        <div class="modal-content">
+            <h2>Receipt</h2>
+            <pre id="receipt-content"></pre>
+            <div class="modal-actions">
+                <button id="send-whatsapp" class="primary-btn">Send via WhatsApp</button>
+                <button id="close-receipt" class="secondary-btn">Close</button>
+            </div>
+            <p class="note">Note: SMS requires backend integration (e.g., Twilio). Use WhatsApp for now.</p>
+        </div>
+    </div>
+    
+    <div id="reports-modal" class="modal">
+        <div class="modal-content large-modal">
+            <h2>Sales Reports</h2>
+            
+            <div id="report-controls" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <label for="report-filter">Filter by Month/Year:</label>
+                    <select id="report-filter">
+                        <option value="all">All Time</option>
+                        </select>
+                </div>
+                <button id="download-csv-btn" class="primary-btn">Download CSV</button>
+            </div>
+
+            <div id="reports-content"></div>
+            <button id="close-reports" class="secondary-btn">Close</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
