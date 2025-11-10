@@ -194,6 +194,7 @@ function generateReceipt(phone, sale) {
 
 function sendWhatsApp() {
     const receipt = document.getElementById('receipt-content').textContent;
+    // CRITICAL: This gets the phone number entered in the checkout modal.
     const phone = document.getElementById('phone').value; 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(receipt)}`;
     window.open(url, '_blank');
